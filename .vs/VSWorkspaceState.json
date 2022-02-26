@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\Db",
+    "\\app\\Entity",
+    "\\includes",
+    "\\vendor",
+    "\\vendor\\composer"
+  ],
+  "SelectedNode": "\\app\\Entity\\Vaga.php",
+  "PreviewInSolutionExplorer": false
+}
