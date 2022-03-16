@@ -15,7 +15,7 @@ $condicoes = [
 //CLAUSULA WHERE
 $where = implode(' AND ', $condicoes);
 
-$vagas = Vaga::getVagas();
+$vagas = Vaga::getVagas($where);
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/listagem.php';
