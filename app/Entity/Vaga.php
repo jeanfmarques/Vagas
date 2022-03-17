@@ -91,6 +91,24 @@ class Vaga{
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
   }
 
+
+  /**
+   * Método responsável por obter a quatidade de vagas
+
+   * @param  string $where
+   * @return array
+   */
+  public static function getQuantidadeVagas($where = null){
+    return (new Database('vagas'))->select($where,null,null,'COUNT(*) as qtd')
+                                  ->fetchObject()
+                                  ->qtd;
+  }
+
+
+
+
+
+
   /**
    * Método responsável por buscar uma vaga com base em seu ID
    * @param  integer $id

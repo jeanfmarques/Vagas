@@ -8,6 +8,6 @@
     "\\vendor",
     "\\vendor\\composer"
   ],
-  "SelectedNode": "\\app\\Entity\\Vaga.php",
+  "SelectedNode": "\\app\\Db\\Pagination.php",
   "PreviewInSolutionExplorer": false
 }
