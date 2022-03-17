@@ -4,6 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 
 define('TITLE','Cadastrar vaga');
 
+//Teste
 use \App\Entity\Vaga;
 $obVaga = new Vaga;
 
