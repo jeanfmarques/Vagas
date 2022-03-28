@@ -5,7 +5,7 @@ namespace App\Db;
 class Pagination {
 	
 	/**
-	*Numero Maximo de Registros por pagina
+	*Numero M√°ximo de Registros por pagina
 	* @var integer
 	*/
 	private $limit;
@@ -23,7 +23,7 @@ class Pagination {
 	private $pages;
 
 	/**
-	*P·gina Atual
+	*P√°gina Atual
 	* @var integer
 	*/
 	private $currentPage;
@@ -42,18 +42,18 @@ class Pagination {
 	}
 
 	/**
-	*MÈtodo respons·vel por calcular a p·ginaÁ„o
+	*M√©todo respons√°vel por calcular a p√°gina√ß√£o
 	*/
 	private function calculate(){
-		//CALCULA O TOTAL DE P¡GINAS
+		//CALCULA O TOTAL DE P√ÅGINAS
 		$this->pages = $this->results > 0 ? ceil($this->results / $this->limit) : 1;
 
-		//VERIFICA SE A PAGINA ATUAL N√O EXCEDE O N⁄MERO DE P¡GINAS
+		//VERIFICA SE A PAGINA ATUAL N√ÉO EXCEDE O N√öMERO DE P√ÅGINAS
 		$this->currentPage = $this->currentPage <= $this->pages ? $this->currentPage : $this->pages;
 	}
 
 	/**
-	*MÈtodo respons·vel por retornar a clausula limit do SQL
+	*M√©todo respons√°vel por retornar a clausula limit do SQL
 	* @return string
 	*/
 	public function getLimit(){
@@ -62,14 +62,14 @@ class Pagination {
 	}
 
 	/**
-	*MÈtodo respons·vel por retornar as opÁıes de p·ginas disponÌveis
+	*M√©todo respons√°vel por retornar as op√ß√µes de p√°ginas dispon√≠veis
 	* @return string
 	*/
 	public function getPages(){
-		//N√O RETORNA P¡GINAS
+		//N√ÉO RETORNA P√ÅGINAS
 		if ($this->pages == 1) return [];
 
-		//P¡GINAS
+		//P√ÅGINAS
 
 		$paginas = [];
 		for($i = 1; $i <= $this->pages; $i++){
