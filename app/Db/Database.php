@@ -8,7 +8,7 @@ use \PDOException;
 class Database{
 
   /**
-   * Host de conexão com o banco de dados
+   * Host de conexÃ£o com o banco de dados
    * @var string
    */
   const HOST = 'localhost';
@@ -20,7 +20,7 @@ class Database{
   const NAME = 'wdev_vagas';
 
   /**
-   * Usuário do banco
+   * UsuÃ¡rio do banco
    * @var string
    */
   const USER = 'root';
@@ -38,13 +38,13 @@ class Database{
   private $table;
 
   /**
-   * Instancia de conexão com o banco de dados
+   * Instancia de conexÃ£o com o banco de dados
    * @var PDO
    */
   private $connection;
 
   /**
-   * Define a tabela e instancia e conexão
+   * Define a tabela e instancia e conexÃ£o
    * @param string $table
    */
   public function __construct($table = null){
@@ -53,7 +53,7 @@ class Database{
   }
 
   /**
-   * Método responsável por criar uma conexão com o banco de dados
+   * MÃ©todo responsÃ¡vel por criar uma conexÃ£o com o banco de dados
    */
   private function setConnection(){
     try{
@@ -65,7 +65,7 @@ class Database{
   }
 
   /**
-   * Método responsável por executar queries dentro do banco de dados
+   * MÃ©todo responsÃ¡vel por executar queries dentro do banco de dados
    * @param  string $query
    * @param  array  $params
    * @return PDOStatement
@@ -81,7 +81,7 @@ class Database{
   }
 
   /**
-   * Método responsável por inserir dados no banco
+   * MÃ©todo responsÃ¡vel por inserir dados no banco
    * @param  array $values [ field => value ]
    * @return integer ID inserido
    */
@@ -101,7 +101,7 @@ class Database{
   }
 
   /**
-   * Método responsável por executar uma consulta no banco
+   * MÃ©todo responsÃ¡vel por executar uma consulta no banco
    * @param  string $where
    * @param  string $order
    * @param  string $limit
@@ -122,7 +122,7 @@ class Database{
   }
 
   /**
-   * Método responsável por executar atualizações no banco de dados
+   * MÃ©todo responsÃ¡vel por executar atualizaÃ§Ãµes no banco de dados
    * @param  string $where
    * @param  array $values [ field => value ]
    * @return boolean
@@ -142,7 +142,7 @@ class Database{
   }
 
   /**
-   * Método responsável por excluir dados do banco
+   * Mï¿½todo responsÃ¡vel por excluir dados do banco
    * @param  string $where
    * @return boolean
    */

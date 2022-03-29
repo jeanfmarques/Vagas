@@ -15,7 +15,7 @@ $filtroStatus = in_array($filtroStatus,['s','n']) ? $filtroStatus : '';
 
 //CONDIÇÕES SQL
 $condicoes = [
-	strlen($busca) ? 'titulo LIKE "%'.$str_replace(' ', '%', $busca).'%"' : null,
+	strlen($busca) ? 'titulo LIKE "%'.$str_replace(' ', '%',$busca).'%"' : null,
 	strlen($filtroStatus) ? 'ativo = "'.$filtroStatus.'"' : null
 ];
 
@@ -23,7 +23,7 @@ $condicoes = [
 $condicoes = array_filter($condicoes);
 
 //CLAUSULA WHERE
-$where = implode(' AND ', $condicoes);
+$where = implode(' AND ',$condicoes);
 
 //QUANTIDADE TOTAL DE VAGAS
 $quantidadeVagas = Vaga::getQuantidadeVagas($where);

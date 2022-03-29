@@ -79,7 +79,7 @@ foreach($paginas as $key=>$pagina){
 
     <div class="col">
     <label>Status</label>
-    <select name="filtroStatus" class="form-control">
+    <select name="status" class="form-control">
     <option value="">Ativa/Inativa</option>
     <option value="s"<?=$filtroStatus=='s' ? 'selected' : ''?>>Ativa</option>
     <option value="n"<?=$filtroStatus=='n' ? 'selected' : ''?>>Inativa</option>
