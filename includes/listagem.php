@@ -1,38 +1,38 @@
 ﻿<?php
 
-  $mensagem = '';
-  if(isset($_GET['status'])){
-    switch ($_GET['status']) {
-      case 'success':
-        $mensagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
-        break;
+$mensagem = '';
+if (isset($_GET['status'])) {
+  switch ($_GET['status']) {
+    case 'success':
+      $mensagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
+      break;
 
-      case 'error':
-        $mensagem = '<div class="alert alert-danger">Ação não executada!</div>';
-        break;
-    }
+    case 'error':
+      $mensagem = '<div class="alert alert-danger">Ação não executada!</div>';
+      break;
   }
+}
 
-  $resultados = '';
-  foreach($vagas as $vaga){
-    $resultados .= '<tr>
-                      <td>'.$vaga->id.'</td>
-                      <td>'.$vaga->titulo.'</td>
-                      <td>'.$vaga->descricao.'</td>
-                      <td>'.($vaga->ativo == 's' ? 'Ativo' : 'Inativo').'</td>
-                      <td>'.date('d/m/Y à\s H:i:s',strtotime($vaga->data)).'</td>
+$resultados = '';
+foreach ($vagas as $vaga) {
+  $resultados .= '<tr>
+                      <td>' . $vaga->id . '</td>
+                      <td>' . $vaga->titulo . '</td>
+                      <td>' . $vaga->descricao . '</td>
+                      <td>' . ($vaga->ativo == 's' ? 'Ativo' : 'Inativo') . '</td>
+                      <td>' . date('d/m/Y à\s H:i:s', strtotime($vaga->data)) . '</td>
                       <td>
-                        <a href="editar.php?id='.$vaga->id.'">
+                        <a href="editar.php?id=' . $vaga->id . '">
                           <button type="button" class="btn btn-primary">Editar</button>
                         </a>
-                        <a href="excluir.php?id='.$vaga->id.'">
+                        <a href="excluir.php?id=' . $vaga->id . '">
                           <button type="button" class="btn btn-danger">Excluir</button>
                         </a>
                       </td>
                     </tr>';
-  }
+}
 
-  $resultados = strlen($resultados) ? $resultados : '<tr>
+$resultados = strlen($resultados) ? $resultados : '<tr>
                                                        <td colspan="6" class="text-center">
                                                               Nenhuma vaga encontrada
                                                        </td>
@@ -48,17 +48,17 @@ $gets = http_build_query($_GET);
 //PAGINAÇÃO
 $paginacao = '';
 $paginas     = $obPagination->getPages();
-foreach($paginas as $key=>$pagina){
-    $class = $pagina['atual'] ? 'btn-primary' : 'btn-light';
-    $paginacao .= '<a href ="?pagina='.$pagina['pagina'].'&'.$gets.'">
-                     <button type="button" class="btn '.$class.'">'.$pagina['pagina'].'</button>
+foreach ($paginas as $key => $pagina) {
+  $class = $pagina['atual'] ? 'btn-primary' : 'btn-light';
+  $paginacao .= '<a href ="?pagina=' . $pagina['pagina'] . '&' . $gets . '">
+                     <button type="button" class="btn ' . $class . '">' . $pagina['pagina'] . '</button>
                 </a>';
 }
 
 ?>
 <main>
 
-  <?=$mensagem?>
+  <?= $mensagem ?>
 
   <section>
     <a href="cadastrar.php">
@@ -67,54 +67,54 @@ foreach($paginas as $key=>$pagina){
   </section>
 
   <section>
-  
+
     <form method="get">
 
-    <div class ="row my-4">
+      <div class="row my-4">
 
-    <div class="col">
-        <label>Buscar por título</label>
-        <input type="text" name="busca" class="form-control" value="<?=$busca?>">
-    </div>
+        <div class="col">
+          <label>Buscar por título</label>
+          <input type="text" name="busca" class="form-control" value="<?= $busca ?>">
+        </div>
 
-    <div class="col">
-    <label>Status</label>
-    <select name="status" class="form-control">
-    <option value="">Ativa/Inativa</option>
-    <option value="s"<?=$filtroStatus=='s' ? 'selected' : ''?>>Ativa</option>
-    <option value="n"<?=$filtroStatus=='n' ? 'selected' : ''?>>Inativa</option>
-    </select>
-    </div>
+        <div class="col">
+          <label>Status</label>
+          <select name="status" class="form-control">
+            <option value="">Ativa/Inativa</option>
+            <option value="s" <?= $filtroStatus == 's' ? 'selected' : '' ?>>Ativa</option>
+            <option value="n" <?= $filtroStatus == 'n' ? 'selected' : '' ?>>Inativa</option>
+          </select>
+        </div>
 
-    <div class="col d-flex align-items-end">
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-    </div>
-    </div>
+        <div class="col d-flex align-items-end">
+          <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
 
-    <form>
+      <form>
   </section>
 
   <section>
 
     <table class="table bg-light mt-3">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Status</th>
-            <th>Data</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-            <?=$resultados?>
-        </tbody>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?= $resultados ?>
+      </tbody>
     </table>
 
   </section>
   <section>
-    <?=$paginacao?>
+    <?= $paginacao ?>
   </section>
 
 </main>
